@@ -2,10 +2,12 @@ plugins {
     id 'java'
     id 'groovy'
     id 'java-gradle-plugin'
+    id 'maven-publish'
+    id 'com.gradle.plugin-publish' version '0.18.0'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'io.github.afezeria'
+version '1.0'
 
 repositories {
     mavenCentral()
@@ -24,16 +26,6 @@ tasks.named("check") {
     dependsOn functionalTestTask
 }
 
-gradlePlugin {
-    plugins {
-        simplePlugin {
-            id = 'com.github.afezeria.serial-task'
-            implementationClass = 'com.github.afezeria.serialtask.SerialTaskPlugin'
-        }
-    }
-    testSourceSets(sourceSets.functionalTest)
-}
-
 dependencies {
     functionalTestImplementation('org.junit.jupiter:junit-jupiter-api:5.8.1')
     functionalTestRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.8.1')
@@ -48,38 +40,20 @@ tasks.withType(Test).configureEach {
     }
 }
 
-//project('suba'){
-//
-//    task a {
-//
-//        println "====$project.name$name start ${LocalDateTime.now()}"
-//        Thread.sleep(5000)
-//        println "====$project.name$name end   ${LocalDateTime.now()}"
-//    }
-//    task b {
-//        println "====$project.name$name start ${LocalDateTime.now()}"
-//        Thread.sleep(5000)
-//        println "====$project.name$name end   ${LocalDateTime.now()}"
-//    }
-//    task c {
-//        dependsOn(a, b)
-//    }
-//}
-//
-//project('subb'){
-//
-//    task a {
-//
-//        println "====$project.name$name start ${LocalDateTime.now()}"
-//        Thread.sleep(5000)
-//        println "====$project.name$name end   ${LocalDateTime.now()}"
-//    }
-//    task b {
-//        println "====$project.name$name start ${LocalDateTime.now()}"
-//        Thread.sleep(5000)
-//        println "====$project.name$name end   ${LocalDateTime.now()}"
-//    }
-//    task c {
-//        dependsOn(b, a)
-//    }
-//}
+pluginBundle {
+    website = 'https://github.com/afezeria/serial-task'
+    vcsUrl = 'https://github.com/afezeria/serial-task.git'
+    tags = ['example', 'template']
+}
+
+gradlePlugin {
+    plugins {
+        simplePlugin {
+            id = 'io.github.afezeria.serial-task'
+            displayName = 'serial task plugin'
+            description = 'Make parallel tasks execute serially'
+            implementationClass = 'io.github.afezeria.serialtask.SerialTaskPlugin'
+        }
+    }
+    testSourceSets(sourceSets.functionalTest)
+}
