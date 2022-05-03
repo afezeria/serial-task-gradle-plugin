@@ -1,4 +1,4 @@
-package com.github.afezeria.serialtask;
+package io.github.afezeria.serialtask;
 
 import org.gradle.api.services.BuildService;
 import org.gradle.api.services.BuildServiceParameters;

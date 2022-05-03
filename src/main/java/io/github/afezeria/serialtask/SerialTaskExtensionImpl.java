@@ -1,4 +1,4 @@
-package com.github.afezeria.serialtask;
+package io.github.afezeria.serialtask;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.github.afezeria.serialtask;
+package io.github.afezeria.serialtask;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
