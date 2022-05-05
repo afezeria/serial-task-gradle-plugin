@@ -10,6 +10,7 @@ public interface SerialTaskExtension {
 
     /**
      * group info
+     * @return defined task groups
      */
     Map<String, List<String>> getGroups();
 
@@ -26,7 +27,17 @@ public interface SerialTaskExtension {
      */
     void set(String group, String task);
 
+    /**
+     * DEFAULT_GROUP_NAME
+     */
     String DEFAULT_GROUP_NAME = "defaultSerialGroup";
+    /**
+     * plugin configuration name
+     */
     String NAME = "serialTask";
+
+    /**
+     * DEFAULT_SERVICE_PREFIX
+     */
     String DEFAULT_SERVICE_PREFIX = "defaultServicePrefix_";
 }
