@@ -1,4 +1,4 @@
-# serial-task
+# serial task gradle plugin
 
 This gradle plugin allows you to execute parallel tasks serially without setting `org.gradle.workers.max=1`
 
