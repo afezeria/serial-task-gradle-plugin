@@ -18,11 +18,11 @@ class SerialTaskPluginFunctionalTest {
         buildFile = new File(testProjectDir, 'build.gradle')
         buildFile << """
 plugins {
-    id("com.github.afezeria.serial-task")
+    id("io.github.afezeria.serial-task")
 }
 subprojects {
     apply{
-        plugin("com.github.afezeria.serial-task")
+        plugin("io.github.afezeria.serial-task")
     }
 
     task a {
@@ -55,7 +55,7 @@ include('sub-1','sub-2')
         def end = LocalDateTime.parse(logs.last().substring(11))
         assert start.plusSeconds(10).isAfter(end)
 
-        buildFile<<"""
+        buildFile << """
 serialTask{
 set('a')
 }
