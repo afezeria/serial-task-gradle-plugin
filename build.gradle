@@ -41,8 +41,8 @@ tasks.withType(Test).configureEach {
 }
 
 pluginBundle {
-    website = 'https://github.com/afezeria/serial-task'
-    vcsUrl = 'https://github.com/afezeria/serial-task.git'
+    website = 'https://github.com/afezeria/serial-task-gradle-plugin'
+    vcsUrl = 'https://github.com/afezeria/serial-task-gradle-plugin.git'
     tags = ['task']
 }
 
