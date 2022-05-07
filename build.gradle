@@ -57,3 +57,9 @@ gradlePlugin {
     }
     testSourceSets(sourceSets.functionalTest)
 }
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
